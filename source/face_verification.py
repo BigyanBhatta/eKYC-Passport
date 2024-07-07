@@ -78,6 +78,30 @@ def deepface_comparision(image1_path =image_path1 , image2_path= image_path2):
         return False
 
 
+def face_comparision(image1_path, image2_path, model_name = 'deepface'):
+    is_verified = False
+    if model_name == 'deepface': 
+        is_verified = deepface_comparision(image1_path, image2_path)
+    
+    return is_verified
 
+def get_face_embeddings(image_path):
+    #check if image exists or not 
+    image_exists = file_exists(image_path)
+
+    if not(image_exists):
+        print('check the path of the provided image')
+        return None
+    
+    embedding_objs = DeepFace.represent(img_path= image_path, model_name= 'Facenet')
+    embedding = embedding_objs[0]['embeddings']
+
+    if len(embedding) > 0:
+        return embedding 
+    return None
+
+if __name__ == '__main__':
+    id_card = 'data\\raw_images\\passport-2.jpg'
+    extracted_path = detect_extract_face(img = id_card)
     
 
