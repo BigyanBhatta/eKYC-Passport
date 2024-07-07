@@ -43,7 +43,7 @@ def extract_id_card(img):
     threshold = cv2.adaptiveThreshold(blur_image, maxValue= 255, adaptiveMethod= cv2.ADAPTIVE_THRESH_MEAN_C, thresholdType= cv2.THRESH_BINARY_INV, blockSize= 11, C = 2)
 
     #Find Contours
-    contours, _ = cv2.findContours(threshold, mode = cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(threshold, mode = cv2.RETR_EXTERNAL, method = cv2.CHAIN_APPROX_SIMPLE)
 
     # find the largest contour and area, assuming the ID card is the largest contour
     largest_area = 0
