@@ -25,7 +25,7 @@ def extract_text(image_path, confidence_threshold = 0.1, languages = ['en']):
         for text in result:
             bounding_box, recognized_text, confidence = text
             if confidence > confidence_threshold:
-                filtered_text = recognized_text + '|'
+                filtered_text += recognized_text + '|' 
         
         return filtered_text
     

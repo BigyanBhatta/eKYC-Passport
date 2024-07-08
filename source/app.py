@@ -38,9 +38,9 @@ def main_content(image_file, face_image_file):
 
             # extract text from ocr engine named easyocr
             extracted_text = extract_text(image_roi)
-            print('The output from extracted_text:',extracted_text)
+            # print('The output from extracted_text:',extracted_text) 
             text_info =  extract_information(extracted_text)
-            print('The output from text info:',text_info)
+            # print('The output from text info:',text_info)
 
     return text_info
 
