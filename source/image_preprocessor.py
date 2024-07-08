@@ -1,9 +1,12 @@
 import cv2
 import os 
+import matplotlib.pyplot as plt
 from logger import logging
+from utils import file_exists
 
 from utils import read_yaml
-yaml_path = 'config.yaml'
+
+yaml_path = 'source/config.yaml'
 config = read_yaml(yaml_path= yaml_path)
 
 artifacts = config['artifacts']
@@ -15,7 +18,7 @@ def read_image(image_path):
     try:
         img = cv2.imread(image_path)
         if img is None:
-            logging.INFO('Error reading the image')
+            logging.info('Error reading the image')
             raise Exception
         return img
             
@@ -56,9 +59,9 @@ def extract_id_card(img):
             largest_area = area 
 
     if largest_contour is None:
+        logging.info('No contour found')
         return None
-        logging.INFO('No contour found')
-
+        
     x, y, w, h = cv2.boundingRect(largest_contour)
 
     current_work_dir = os.getcwd()
@@ -66,12 +69,19 @@ def extract_id_card(img):
 
     contour_id = img[y: y+ h, x: x + w]
 
+    is_exists = file_exists(filename)
+    if is_exists:
+        # Remove the existing file
+        os.remove(filename)
+
     cv2.imwrite(filename=filename, img = contour_id)
 
+
+    # TESTING PURPOSE
+    plt.imshow(contour_id)
+    plt.show()
+
     return contour_id, filename
-
-
-
 
 
 
