@@ -9,7 +9,7 @@ def read_yaml(yaml_path:str) -> dict:
     with open(yaml_path) as yaml_file:
         yaml_data = yaml.safe_load(yaml_file)
     
-    logging.INFO('yaml file loaded successfully')
+    logging.info('yaml file loaded successfully')
     return yaml_data
 
 
@@ -25,6 +25,15 @@ def save_image(image, filename, path = "."):
     """
     full_path = os.path.join(path, filename)
     cv2.imwrite(full_path, image)
-    logging.INFO('Image saved to the specified path successfully')
+    logging.info('Image saved to the specified path successfully')
     
     return full_path
+
+def file_exists(image_path):
+    is_exists = os.path.exists(image_path)
+
+    if is_exists:
+        logging.info(f'The file exists at the specified_path: {image_path}')
+        return True
+    else:
+        return None

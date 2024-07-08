@@ -3,7 +3,7 @@ import easyocr
 
 from logger import logging
 
-def extract_text(image_path, confidence_threshold = 0.3, languages = ['en']):
+def extract_text(image_path, confidence_threshold = 0.1, languages = ['en']):
     ''''
     Extracts and filters text from an image using OCR, based on a confidence threshold.
 
@@ -15,7 +15,7 @@ def extract_text(image_path, confidence_threshold = 0.3, languages = ['en']):
     returns:
         Raw text seperated by | in between the words
     '''
-    logging.INFO('Text Extraction started')
+    logging.info('Text Extraction started')
     reader = easyocr.Reader(languages)
 
     try:
@@ -30,6 +30,6 @@ def extract_text(image_path, confidence_threshold = 0.3, languages = ['en']):
         return filtered_text
     
     except Exception as e:
-        logging.INFO(f'An error occured during text extraction: {e}')
+        logging.info(f'An error occured during text extraction: {e}')
         return None
     
