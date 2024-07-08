@@ -1,7 +1,0 @@
-artifacts:
-  FACERECOG_MODEL: deepface
-  HAARCASCADE_PATH: "data\\models\\haarcascade_frontalface_default.xml"
-  RAW_DATA_PATH: "data\\raw_images" #Intermediate_data_path
-  CONTOUR_FILE: "contour_id.jpg"
-  FACE_IMG1: "data\\02_intermediate_data\\women_face1.jpg"
-  FACE_IMG2: "data\\02_intermediate_data\\women_face2.jpg"
