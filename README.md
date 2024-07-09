@@ -10,7 +10,7 @@ This project implements an electronic Know Your Customer (e-KYC) system using co
     - [Running the Application](#running-the-application)
     - [Testing the Application](#testing-the-application)
     - [Output](#output)
-5. [Source File](#source)
+5. [Source File](#Source-File)
     - [image_preprocessor.py](#1-image_preprocessor.py)
     - [ocr_engine.py](#2-ocr_engine.py)
     - [face_verification.py](#3-face_verification.py)
@@ -80,7 +80,9 @@ To test the application with sample images:
 
 - Place your ID card image and face image in the specified directory (data/test_image/).
 - Update the paths in the test_main_content() function inside app.py.
-
+``````
+ Note: I haven't pushed the folder 'raw_image' which contains 'bigyan_face_image.jpg' and 'bigyan_passport_image.jpg' in the repository for privacy purpose. 
+``````
 ### Output
 The output of the application will display the verification status of the faces and the extracted information from the ID card in the console.
 
